@@ -34,16 +34,9 @@ RUN chsh -s /bin/bash www-data
 
 #CONFIG ----------------------
 #PHP
-ADD php.ini /etc/php/7.0/fpm/php.ini
-#ADD fastcgi_params /etc/nginx/fastcgi_params
-#ADD www.conf /etc/php/7.0/fpm/pool.d/www.conf
-#ADD php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
+#ADD php.ini /etc/php/7.0/fpm/php.ini
 
-#NGINX
-ADD nginx.conf /etc/nginx/nginx.conf
-ADD default.conf /etc/nginx/conf.d/default.conf
-ADD wordpress.conf /etc/nginx/wordpress.conf
-ADD phpfpm.conf /etc/nginx/phpfpm.conf
+
 
 #start services
 CMD service php7.0-fpm start && httpd -g "daemon off;"
