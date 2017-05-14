@@ -1,4 +1,4 @@
-FROM httpd:2.4
+FROM debian:stretch-slim
 
 MAINTAINER Luc Frébourg
 
@@ -10,6 +10,7 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 	aptitude \
     	apt-utils
  RUN aptitude install -y\
+ 	apache2 \
 	php7.0-fpm \
     	php-mysql \
 	php-xml \
@@ -39,7 +40,7 @@ RUN chsh -s /bin/bash www-data
 
 
 #start services
-CMD service php7.0-fpm start && httpd -g "daemon off;"
+#CMD service php7.0-fpm start && httpd -g "daemon off;"
 
 #WARNING - not working on bluemix with bx ic run, need to put -p or create container with web console.
 EXPOSE 80 443 110 143 145 22 25 53
