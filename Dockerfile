@@ -31,6 +31,7 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 	ssh 
 	
 
+RUN mkdir var/www/cherryclass/
 RUN mkdir var/www/cherryclass/adminer/
 RUN mkdir var/www/cherryclass/owncloud/
 
