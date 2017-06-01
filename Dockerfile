@@ -11,6 +11,7 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
  	apache2 \
 	php7.0 \
     	libapache2-mod-php7.0 \
+	php7.0-fpm \
 	php7.0-mysql \
 	php7.0-curl \
 	php7.0-json \
@@ -27,6 +28,16 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 	php7.0-zip\
 	sudo \
 	ssh 
+	
+
+RUN mkdir var/www/html/adminer/
+ADD adminer-4.3.1-mysql.php var/www/html/adminer/adminer.php
+
+#ADD opcache.ini /etc/php/mods-available/opcache.ini
+#opcache.memory_consumption=512
+#opcache.revalidate_freq=60
+#opcache.validate_timestamps=1
+#opcache.max_accelerated_files=5000
 
 #WARNING - not working on bluemix with bx ic run, need to put -p or create container with web console.
 EXPOSE 80 443 110 143 145 22 25 53
