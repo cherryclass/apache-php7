@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #install stuff
 RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q && apt-get -y -q autoclean && apt-get -y -q autoremove)
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
-	apt-utils
+	apt-utils \
  	apache2 \
 	php7.0 \
     	libapache2-mod-php7.0 \
