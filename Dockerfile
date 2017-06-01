@@ -29,7 +29,10 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 	sudo \
 	nano\
 	ssh 
-	
+
+#gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
+#owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
+#let s encrytp https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-debian-8
 
 RUN mkdir var/www/cherryclass/
 RUN mkdir var/www/cherryclass/adminer/
