@@ -36,13 +36,10 @@ RUN mkdir var/www/cherryclass/adminer/
 RUN mkdir var/www/cherryclass/owncloud/
 
 ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
-ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
+ADD 000-default.conf /etc/hosts
 
-#ADD opcache.ini /etc/php/mods-available/opcache.ini
-#opcache.memory_consumption=512
-#opcache.revalidate_freq=60
-#opcache.validate_timestamps=1
-#opcache.max_accelerated_files=5000
+ADD opcache.ini /etc/php/mods-available/opcache.ini
+
 
 #WARNING - not working on bluemix with bx ic run, need to put -p or create container with web console.
 EXPOSE 80 443 110 143 145 22 25 53
