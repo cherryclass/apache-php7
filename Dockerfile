@@ -27,11 +27,15 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 	php7.0-xml \
 	php7.0-zip\
 	sudo \
+	nano\
 	ssh 
 	
 
-RUN mkdir var/www/html/adminer/
-ADD adminer-4.3.1-mysql.php var/www/html/adminer/adminer.php
+RUN mkdir var/www/cherryclass/adminer/
+RUN mkdir var/www/cherryclass/owncloud/
+
+ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
+ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 #ADD opcache.ini /etc/php/mods-available/opcache.ini
 #opcache.memory_consumption=512
