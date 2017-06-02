@@ -37,7 +37,7 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 RUN mkdir var/www/cherryclass/
 RUN mkdir var/www/cherryclass/adminer/
 RUN mkdir var/www/cherryclass/owncloud/
-ADD index.php var/www/ht
+ADD index.php var/www/html
 
 ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
 #ADD 000-default.conf /etc/hosts
