@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM php:7.0-apache
 
 MAINTAINER Luc Frébourg
 
@@ -33,6 +33,10 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 #gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
 #owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
 #let s encrytp https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-debian-8
+
+#COPY config/php.ini /usr/local/etc/php/
+#COPY src/ /var/www/html/
+
 
 RUN mkdir var/www/cherryclass/
 RUN mkdir var/www/cherryclass/adminer/
