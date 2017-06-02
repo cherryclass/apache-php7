@@ -29,6 +29,7 @@ RUN mkdir var/www/cherryclass/
 RUN mkdir var/www/cherryclass/adminer/
 RUN mkdir var/www/cherryclass/owncloud/
 ADD index.php var/www/cherryclass/index.php
+ADD index.php var/www/cherryclass/owncloud/index.php
 
 ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
 ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
