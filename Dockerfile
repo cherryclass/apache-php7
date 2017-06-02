@@ -37,12 +37,10 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 RUN mkdir var/www/cherryclass/
 RUN mkdir var/www/cherryclass/adminer/
 RUN mkdir var/www/cherryclass/owncloud/
-ADD index.php var/www/cherryclass/
+ADD index.php var/www/ht
 
 ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
-ADD 000-default.conf /etc/hosts
-
-ADD opcache.ini /etc/php/mods-available/opcache.ini
+#ADD 000-default.conf /etc/hosts
 
 
 #WARNING - not working on bluemix with bx ic run, need to put -p or create container with web console.
