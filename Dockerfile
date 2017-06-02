@@ -8,10 +8,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q && apt-get -y -q autoclean && apt-get -y -q autoremove)
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
 	apt-utils \
- 	apache2 \
-	php7.0 \
+ 	#apache2 \
+	#php7.0 \
     	libapache2-mod-php7.0 \
-	php7.0-fpm \
+	#php7.0-fpm \
 	php7.0-mysql \
 	php7.0-curl \
 	php7.0-json \
