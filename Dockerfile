@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM httpd:2.4
 
 MAINTAINER Luc Frébourg
 
@@ -9,9 +9,9 @@ RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q && ap
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
 	apt-utils \
  	#apache2 \
-	#php7.0 \
+	php7.0 \
     	libapache2-mod-php7.0 \
-	#php7.0-fpm \
+	php7.0-fpm \
 	php7.0-mysql \
 	php7.0-curl \
 	php7.0-json \
