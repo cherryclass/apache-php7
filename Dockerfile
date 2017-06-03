@@ -59,7 +59,7 @@ RUN mkdir var/www/owncloud/3rdparty
 
 ADD index.php var/www/index.php
 ADD /owncloud10 var/www/owncloud/
-ADD adminer-4.3.1-mysql.php var/www/adminer/adminer.php
+ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
 ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 RUN chown -R www-data:www-data /var/www
