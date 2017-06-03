@@ -63,7 +63,6 @@ OC.L10N.register(
     "General" : "Algemeen",
     "Storage" : "Opslaglimiet",
     "Security" : "Beveiliging",
-    "User Authentication" : "Gebruiker authenticatie",
     "Encryption" : "Versleuteling",
     "Workflows & Tags" : "Workflows & Tags",
     "Sharing" : "Delen",

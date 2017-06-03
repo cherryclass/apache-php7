@@ -153,7 +153,6 @@
 				} catch (error) {
 					$input.attr('title', error);
 					$input.tooltip({placement: 'right', trigger: 'manual'});
-					$input.tooltip('fixTitle');
 					$input.tooltip('show');
 					$input.addClass('error');
 				}

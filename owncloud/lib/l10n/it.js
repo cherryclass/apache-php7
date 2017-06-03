@@ -63,7 +63,6 @@ OC.L10N.register(
     "General" : "Generale",
     "Storage" : "Archiviazione",
     "Security" : "Protezione",
-    "User Authentication" : "Autenticazione utente",
     "Encryption" : "Cifratura",
     "Workflows & Tags" : "Flussi di Lavoro & Etichette",
     "Sharing" : "Condivisione",

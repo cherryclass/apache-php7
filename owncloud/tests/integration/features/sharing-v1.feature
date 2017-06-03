@@ -1189,22 +1189,6 @@ Feature: sharing
 			| share_type | 3 |
 			| permissions | 1 |
 
-	Scenario: Creating link share with edit permissions keeps it
-		Given As an "admin"
-		And user "user0" exists
-		And user "user0" created a folder "/afolder"
-		And As an "user0"
-		And creating a share with
-			| path | /afolder |
-			| shareType | 3 |
-			| permissions | 15 |
-		Then the OCS status code should be "100"
-		And the HTTP status code should be "200"
-		And Share fields of last share match with
-			| id | A_NUMBER |
-			| share_type | 3 |
-			| permissions | 15 |
-
 	Scenario: resharing using a public link with read only permissions is not allowed
 		Given As an "admin"
 		And user "user0" exists
@@ -1307,7 +1291,7 @@ Feature: sharing
 		And user "user0" exists
 		And user "user1" exists
 		And group "group0" exists
-		And user "user0" belongs to group "group0"
+		And user "user1" belongs to group "group0"
 		And user "user0" created a folder "/shared"
 		And As an "user0"
 		And User "user0" moved file "/textfile0.txt" to "/shared/shared_file.txt"

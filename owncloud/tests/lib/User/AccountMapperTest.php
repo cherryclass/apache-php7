@@ -25,7 +25,6 @@ namespace Test\User;
 use OC\User\Account;
 use OC\User\AccountMapper;
 use OC\User\AccountTermMapper;
-use OCP\IConfig;
 use OCP\IDBConnection;
 use Test\TestCase;
 
@@ -38,13 +37,13 @@ use Test\TestCase;
  */
 class AccountMapperTest extends TestCase {
 
-	/** @var IConfig | \PHPUnit_Framework_MockObject_MockObject */
-	protected $config;
-
-	/** @var IDBConnection */
+	/**
+	 * @var IDBConnection
+	 */
 	protected $connection;
-
-	/** @var AccountMapper */
+	/**
+	 * @var AccountMapper
+	 */
 	protected $mapper;
 
 	public static function setUpBeforeClass() {
@@ -77,16 +76,8 @@ class AccountMapperTest extends TestCase {
 
 	public function setUp() {
 		parent::setUp();
-
-		$this->config = $this->createMock(IConfig::class);
-
 		$this->connection = \OC::$server->getDatabaseConnection();
-
-		$this->mapper = new AccountMapper(
-			$this->config,
-			$this->connection,
-			new AccountTermMapper($this->connection)
-		);
+		$this->mapper = new AccountMapper($this->connection, new AccountTermMapper($this->connection));
 	}
 
 	public static function tearDownAfterClass () {
@@ -100,6 +91,7 @@ class AccountMapperTest extends TestCase {
 	public function testFindAll() {
 		$result = $this->mapper->find("testfind");
 		$this->assertEquals(4, count($result));
+
 	}
 
 	/**
@@ -109,6 +101,7 @@ class AccountMapperTest extends TestCase {
 		$result = $this->mapper->find("testfind1");
 		$this->assertEquals(1, count($result));
 		$this->assertEquals("TestFind1", array_shift($result)->getUserId());
+
 	}
 
 	/**
@@ -118,6 +111,7 @@ class AccountMapperTest extends TestCase {
 		$result = $this->mapper->find('test find 2');
 		$this->assertEquals(1, count($result));
 		$this->assertEquals("TestFind2", array_shift($result)->getUserId());
+
 	}
 
 	/**
@@ -127,6 +121,7 @@ class AccountMapperTest extends TestCase {
 		$result= $this->mapper->find('test3@find.tld');
 		$this->assertEquals(1, count($result));
 		$this->assertEquals("TestFind3", array_shift($result)->getUserId());
+
 	}
 
 	/**
@@ -136,6 +131,7 @@ class AccountMapperTest extends TestCase {
 		$result = $this->mapper->find('term 4 b');
 		$this->assertEquals(1, count($result));
 		$this->assertEquals("TestFind4", array_shift($result)->getUserId());
+
 	}
 
 	/**
@@ -147,5 +143,6 @@ class AccountMapperTest extends TestCase {
 		//results are ordered by display name
 		$this->assertEquals("TestFind3", array_shift($result)->getUserId());
 		$this->assertEquals("TestFind4", array_shift($result)->getUserId());
+
 	}
 }

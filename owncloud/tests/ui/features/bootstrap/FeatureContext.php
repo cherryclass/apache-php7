@@ -82,7 +82,7 @@ class FeatureContext extends RawMinkContext implements Context
 	 */
 	public function iShouldBeRedirectedToAPageWithTheTitle($title)
 	{
-		$this->owncloudPage->waitForOutstandingAjaxCalls($this->getSession());
+		$this->waitForOutstandingAjaxCalls();
 		$actualTitle = $this->getSession()->getPage()->find(
 			'xpath', './/title'
 			)->getHtml();

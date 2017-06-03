@@ -44,7 +44,6 @@ class PersonalGeneralSettingsContext extends RawMinkContext implements Context
 	public function iAmOnThePersonalGeneralSettingsPage()
 	{
 		$this->personalGeneralSettingsPage->open();
-		$this->personalGeneralSettingsPage->waitForOutstandingAjaxCalls($this->getSession());
 	}
 	
 	/**
@@ -53,6 +52,5 @@ class PersonalGeneralSettingsContext extends RawMinkContext implements Context
 	public function iChangeTheLanguageTo($language)
 	{
 		$this->personalGeneralSettingsPage->changeLanguage($language);
-		$this->personalGeneralSettingsPage->waitForOutstandingAjaxCalls($this->getSession());
 	}
 }
