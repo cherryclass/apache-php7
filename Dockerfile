@@ -60,8 +60,13 @@ RUN mkdir var/www/owncloud/3rdparty
 ADD index.php var/www/index.php
 ADD /owncloud10 var/www/owncloud/
 ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
-ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
+
 ADD php.ini /etc/php/7.0/apache2/php.ini
+
+ADD owncloud.conf /etc/apache2/sites-available/owncloud.conf
+ADD adminer.conf /etc/apache2/sites-available/adminer.conf
+RUN a2ensite owncloud.conf
+RUN a2ensite adminer.conf
 
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
