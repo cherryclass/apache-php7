@@ -3,7 +3,29 @@ MAINTAINER Luc Frébourg
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur sudo nano ssh
+apache2 \
+php7.0 \
+curl \
+lynx-cur \
+libapache2-mod-php7.0 \
+php7.0-fpm \
+php7.0-mysql \
+php7.0-curl \
+php7.0-json \
+php7.0-gd \
+php7.0-mcrypt \
+php7.0-msgpack \
+php7.0-memcached \
+php7.0-intl \
+php7.0-sqlite3 \
+php7.0-gmp \
+php7.0-geoip \
+php7.0-mbstring \
+php7.0-xml \
+php7.0-zip\
+sudo \
+nano \
+ssh 
 
 #gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
 #owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
