@@ -31,8 +31,6 @@ ssh \
 gitolite3 \
 gitweb
 
-
-
 #gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
 #owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
 #let s encrytp https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-debian-8
@@ -52,24 +50,18 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
+RUN mkdir var/www/adminer/
+RUN mkdir var/www/owncloud/
+RUN mkdir var/www/owncloud/config
+RUN mkdir var/www/owncloud/data
+RUN mkdir var/www/owncloud/apps
+RUN mkdir var/www/owncloud/3rdparty
 
-
-RUN mkdir var/www/cherryclass/
-RUN mkdir var/www/cherryclass/adminer/
-RUN mkdir var/www/cherryclass/owncloud/
-ADD index.php var/www/cherryclass/index.php
-ADD index.php var/www/cherryclass/owncloud/index.php
-
-
-RUN mkdir var/www/cherryclass/owncloud/config
-RUN mkdir var/www/cherryclass/owncloud/data
-RUN mkdir var/www/cherryclass/owncloud/apps
-RUN mkdir var/www/cherryclass/owncloud/3rdparty
-ADD /owncloud10 var/www/cherryclass/owncloud/
-
-
-ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
+ADD index.php var/www/index.php
+ADD /owncloud10 var/www/owncloud/
+ADD adminer-4.3.1-mysql.php var/www/adminer/adminer.php
 ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
+
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
 
