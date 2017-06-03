@@ -27,7 +27,9 @@ composer \
 git \
 sudo \
 nano \
-ssh 
+ssh \
+gitolite3 \
+gitweb
 
 
 
