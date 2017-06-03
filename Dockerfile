@@ -31,7 +31,8 @@ nano \
 ssh 
 
 RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
-RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \ python-certbot-apache -t jessie-backports
+RUN apt-get update 
+RUN apt-get -y install python-certbot-apache -t jessie-backports
 
 #gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
 #owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
