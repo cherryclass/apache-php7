@@ -34,14 +34,11 @@ RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt
 RUN apt-get update 
 RUN apt-get -y install python-certbot-apache -t jessie-backports
 
-#gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
-#owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
-#let s encrytp https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-debian-8
-
 # Enable apache mods.
 RUN a2enmod php7.0
 RUN a2enmod rewrite
 
+ADD php.ini /etc/php/7.0/apache2/php.ini
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
 RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
 RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
@@ -64,7 +61,6 @@ ADD index.php var/www/index.php
 ADD /owncloud10 var/www/owncloud/
 ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
 
-ADD php.ini /etc/php/7.0/apache2/php.ini
 
 ADD owncloud.conf /etc/apache2/sites-available/owncloud.conf
 ADD adminer.conf /etc/apache2/sites-available/adminer.conf
@@ -78,3 +74,5 @@ EXPOSE 80 443 110 143 145 22 25 53
 
 # By default start up apache in the foreground, override with /bin/bash for interative.
 CMD /usr/sbin/apache2ctl -D FOREGROUND
+
+#sudo certbot --apache
