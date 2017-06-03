@@ -1,42 +1,7 @@
-<?php
-/**
- * @author Frank Karlitschek <frank@karlitschek.de>
- * @author Ilja Neumann <ineumann@owncloud.com>
- * @author Joas Schilling <coding@schilljs.com>
- * @author Lukas Reschke <lukas@statuscode.ch>
- * @author Vincent Petry <pvince81@owncloud.com>
- *
- * @copyright Copyright (c) 2017, ownCloud GmbH
- * @license AGPL-3.0
- *
- * This code is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License, version 3,
- * as published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License, version 3,
- * along with this program.  If not, see <http://www.gnu.org/licenses/>
- *
- */
-// We only can count up. The 4. digit is only for the internal patchlevel to trigger DB upgrades
-// between betas, final and RCs. This is _not_ the public version number. Reset minor/patchlevel
-// when updating major/minor version number.
-$OC_Version = [10, 0, 2, 1];
-
-// The human readable string
+<?php 
+$OC_Version = array(10,0,2,1);
 $OC_VersionString = '10.0.2';
-
-$OC_VersionCanBeUpgradedFrom = [[9, 0, 9],[9, 1]];
-
-// The ownCloud channel
-$OC_Channel = 'git';
-
-// The build number
-$OC_Build = '';
-
-// Vendor of this package
+$OC_Channel = 'stable';
+$OC_VersionCanBeUpgradedFrom = [[9,0,9],[9,1]];
+$OC_Build = '2017-05-30T17:24:19+00:00 1b8359fca33d002f10e00b6225100071d486e4b6';
 $vendor = 'owncloud';
