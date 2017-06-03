@@ -65,7 +65,7 @@ RUN mkdir var/www/cherryclass/owncloud/config
 RUN mkdir var/www/cherryclass/owncloud/data
 RUN mkdir var/www/cherryclass/owncloud/apps
 RUN mkdir var/www/cherryclass/owncloud/3rdparty
-ADD /owncloud var/www/cherryclass/owncloud/
+ADD /owncloud10 var/www/cherryclass/owncloud/
 
 
 ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
