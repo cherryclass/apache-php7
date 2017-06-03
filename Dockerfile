@@ -71,6 +71,7 @@ ADD /owncloud10 var/www/cherryclass/owncloud/
 ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
 ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN chown -R www-data:www-data /var/www
+RUN chsh -s /bin/bash www-data
 
 EXPOSE 80 443 110 143 145 22 25 53
 
