@@ -2,6 +2,7 @@ FROM debian:stretch-slim
 MAINTAINER Luc Frébourg
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
 apache2 \
 php7.0 \
@@ -28,12 +29,7 @@ git \
 sudo \
 nano \
 ssh \
-gitolite3 \
-gitweb
-
-RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
-RUN apt-get update
-RUN apt-get install python-certbot-apache -t jessie-backports
+python-certbot-apache -t jessie-backports 
 
 #gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
 #owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
