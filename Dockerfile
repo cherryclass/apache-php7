@@ -22,7 +22,7 @@ php7.0-gmp \
 php7.0-geoip \
 php7.0-mbstring \
 php7.0-xml \
-php7.0-zip\
+php7.0-zip \
 sudo \
 nano \
 ssh 
