@@ -27,6 +27,8 @@ sudo \
 nano \
 ssh 
 
+
+
 #gitolite https://www.vultr.com/docs/setup-git-repositories-with-gitolite-on-debian-wheezy
 #owncloud https://falstaff.agner.ch/2013/02/27/deploy-owncloud-from-source-using-git/
 #let s encrytp https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-debian-8
@@ -47,11 +49,20 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
 
+
 RUN mkdir var/www/cherryclass/
 RUN mkdir var/www/cherryclass/adminer/
 RUN mkdir var/www/cherryclass/owncloud/
 ADD index.php var/www/cherryclass/index.php
 ADD index.php var/www/cherryclass/owncloud/index.php
+
+
+RUN mkdir var/www/cherryclass/owncloud/config
+RUN mkdir var/www/cherryclass/owncloud/data
+RUN mkdir var/www/cherryclass/owncloud/apps
+RUN mkdir var/www/cherryclass/owncloud/3rdparty
+ADD /owncloud var/www/cherryclass/owncloud/
+
 
 ADD adminer-4.3.1-mysql.php var/www/cherryclass/adminer/adminer.php
 ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
