@@ -69,6 +69,7 @@ RUN a2ensite adminer.conf
 
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
+RUN adduser www-data sudo
 
 EXPOSE 80 443 110 143 145 22 25 53
 
