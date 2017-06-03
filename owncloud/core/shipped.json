@@ -1,0 +1,23 @@
+{
+  "shippedApps": [
+    "encryption",
+    "configreport",
+    "dav",
+    "enterprise_key",
+    "federation",
+    "federatedfilesharing",
+    "files",
+    "files_external",
+    "files_sharing",
+    "files_trashbin",
+    "files_versions",
+    "provisioning_api",
+    "updatenotification"
+  ],
+  "alwaysEnabled": [
+    "files",
+    "files_external",
+    "dav",
+    "federatedfilesharing"
+  ]
+}
