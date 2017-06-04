@@ -81,3 +81,9 @@ EXPOSE 80 443 110 143 145 22 25 53
 CMD /usr/sbin/apache2ctl -D FOREGROUND
 
 #sudo certbot --apache
+
+#apt install phpmyadmin
+# sudo nano /etc/phpmyadmin/config-db.php
+#cd /var/www/html/example.org/public_html
+#sudo ln -s /usr/share/phpmyadmin
+#/etc/phpmyadmin/config.inc.php Server(s) configuration->>> $cfg['ForceSSL'] = 'true';
