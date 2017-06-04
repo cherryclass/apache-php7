@@ -37,6 +37,9 @@ RUN apt-get -y install python-certbot-apache -t jessie-backports
 # Enable apache mods.
 RUN a2enmod php7.0
 RUN a2enmod rewrite
+RUN a2enmod proxy_fcgi setenvif
+RUN a2enconf php7.0-fpm
+
 
 ADD php.ini /etc/php/7.0/apache2/php.ini
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
