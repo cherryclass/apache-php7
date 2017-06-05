@@ -40,6 +40,9 @@ RUN a2enmod php7.0
 RUN a2enmod rewrite
 RUN a2enmod proxy_fcgi setenvif
 RUN a2enconf php7.0-fpm
+RUN a2enmod expires
+RUN a2enmod ext_filter
+RUN a2enmod headers
 
 
 ADD php.ini /etc/php/7.0/apache2/php.ini
