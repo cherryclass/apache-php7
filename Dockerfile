@@ -29,11 +29,12 @@ mcrypt \
 git \
 sudo \
 nano \
-ssh 
+ssh \
+python-certbot-apache
 
-RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
-RUN apt-get update 
-RUN apt-get -y install python-certbot-apache -t jessie-backports
+#RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
+#RUN apt-get update 
+#RUN apt-get -y install python-certbot-apache -t jessie-backports
 
 # Enable apache mods.
 RUN a2enmod php7.0
@@ -47,8 +48,8 @@ RUN a2enmod headers
 
 ADD php.ini /etc/php/7.0/apache2/php.ini
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
-RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
-RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
+#RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
+#RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
@@ -59,12 +60,12 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 RUN mkdir var/www/adminer/
 RUN mkdir var/www/owncloud/
-RUN mkdir var/www/owncloud/config
-RUN mkdir var/www/owncloud/data
-RUN mkdir var/www/owncloud/apps
-RUN mkdir var/www/owncloud/3rdparty
+#RUN mkdir var/www/owncloud/config
+#RUN mkdir var/www/owncloud/data
+#RUN mkdir var/www/owncloud/apps
+#RUN mkdir var/www/owncloud/3rdparty
 
-ADD index.php var/www/index.php
+#ADD index.php var/www/index.php
 ADD /owncloud10 var/www/owncloud/
 ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
 
