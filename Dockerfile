@@ -30,7 +30,8 @@ git \
 sudo \
 nano \
 ssh \
-python-certbot-apache
+python-certbot-apache \
+php-smbclient
 
 #RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
 #RUN apt-get update 
