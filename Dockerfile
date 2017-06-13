@@ -31,7 +31,8 @@ sudo \
 nano \
 ssh \
 python-certbot-apache \
-php-smbclient
+php-smbclient \
+php-net-socket
 
 #RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
 #RUN apt-get update 
