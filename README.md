@@ -5,9 +5,9 @@
 ## Version
 httpd 2.4  
 php 7.0
-owncloud 10
+nextcloud 12.0.0
 adminiser 4.3.1
 
-Last : 1.0.0
+Last : 1.1
 
   
