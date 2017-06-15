@@ -62,20 +62,21 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
 RUN mkdir var/www/adminer/
-RUN mkdir var/www/owncloud/
-#RUN mkdir var/www/owncloud/config
-#RUN mkdir var/www/owncloud/data
-#RUN mkdir var/www/owncloud/apps
-#RUN mkdir var/www/owncloud/3rdparty
+#RUN mkdir var/www/owncloud/
+RUN mkdir var/www/nextcloud/
 
-#ADD index.php var/www/index.php
-ADD /owncloud10 var/www/owncloud/
+
+ADD index.php var/www/index.php
+#ADD /owncloud10 var/www/owncloud/
+ADD /nextcloud var/www/nextcloud/
 ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
 
 
-ADD owncloud.conf /etc/apache2/sites-available/owncloud.conf
+#ADD owncloud.conf /etc/apache2/sites-available/owncloud.conf
+ADD nextcloud.conf /etc/apache2/sites-available/nextcloud.conf
 ADD adminer.conf /etc/apache2/sites-available/adminer.conf
-RUN a2ensite owncloud.conf
+#RUN a2ensite owncloud.conf
+RUN a2ensite nextcloud.conf
 RUN a2ensite adminer.conf
 
 RUN chown -R www-data:www-data /var/www
