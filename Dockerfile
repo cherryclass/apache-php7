@@ -55,6 +55,11 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 ADD index.php var/www/index.php
 
+RUN mkdir var/www/gitlab/
+RUN a2ensite gitlab.conf
+
+
+
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
 RUN adduser www-data sudo
