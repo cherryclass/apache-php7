@@ -35,10 +35,6 @@ php-smbclient \
 php-net-socket \
 php-apcu
 
-#RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' | tee /etc/apt/sources.list.d/backports.list
-#RUN apt-get update 
-#RUN apt-get -y install python-certbot-apache -t jessie-backports
-
 # Enable apache mods.
 RUN a2enmod php7.0
 RUN a2enmod rewrite
@@ -48,11 +44,7 @@ RUN a2enmod expires
 RUN a2enmod ext_filter
 RUN a2enmod headers
 
-
 ADD php.ini /etc/php/7.0/apache2/php.ini
-# Update the PHP.ini file, enable <? ?> tags and quieten logging.
-#RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
-#RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
@@ -61,23 +53,7 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
-RUN mkdir var/www/adminer/
-#RUN mkdir var/www/owncloud/
-RUN mkdir var/www/nextcloud/
-
-
 ADD index.php var/www/index.php
-#ADD /owncloud10 var/www/owncloud/
-ADD /nextcloud var/www/nextcloud/
-ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
-
-
-#ADD owncloud.conf /etc/apache2/sites-available/owncloud.conf
-ADD nextcloud.conf /etc/apache2/sites-available/nextcloud.conf
-ADD adminer.conf /etc/apache2/sites-available/adminer.conf
-#RUN a2ensite owncloud.conf
-RUN a2ensite nextcloud.conf
-RUN a2ensite adminer.conf
 
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
@@ -89,9 +65,3 @@ EXPOSE 80 443 110 143 145 22 25 53
 CMD /usr/sbin/apache2ctl -D FOREGROUND
 
 #sudo certbot --apache
-
-#apt install phpmyadmin
-# sudo nano /etc/phpmyadmin/config-db.php
-#cd /var/www/html/example.org/public_html
-#sudo ln -s /usr/share/phpmyadmin
-#/etc/phpmyadmin/config.inc.php Server(s) configuration->>> $cfg['ForceSSL'] = 'true';
