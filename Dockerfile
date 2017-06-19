@@ -44,6 +44,7 @@ RUN a2enconf php7.0-fpm
 RUN a2enmod expires
 RUN a2enmod ext_filter
 RUN a2enmod headers
+RUN a2enmod cgi
 
 ADD php.ini /etc/php/7.0/apache2/php.ini
 
@@ -56,8 +57,6 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 ADD index.php var/www/index.php
 
-RUN mkdir var/www/gitlab/
-ADD index.php var/www/gitlab/index.php
 ADD cgit.conf /etc/apache2/sites-available/cgit.conf
 ADD cgitd.conf /etc/apache2/sites-available/cgitd.conf
 RUN a2ensite cgit.conf
