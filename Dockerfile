@@ -59,8 +59,9 @@ ADD index.php var/www/index.php
 RUN mkdir var/www/gitlab/
 ADD index.php var/www/gitlab/index.php
 ADD cgit.conf /etc/apache2/sites-available/cgit.conf
+ADD cgitd.conf /etc/apache2/sites-available/cgitd.conf
 RUN a2ensite cgit.conf
-
+RUN a2ensite cgitd.conf
 
 
 RUN chown -R www-data:www-data /var/www
