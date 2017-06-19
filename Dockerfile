@@ -56,6 +56,7 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 ADD index.php var/www/index.php
 
 RUN mkdir var/www/gitlab/
+ADD index.php var/www/gitlab/index.php
 ADD gitlab.conf /etc/apache2/sites-available/gitlab.conf
 RUN a2ensite gitlab.conf
 
