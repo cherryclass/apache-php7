@@ -33,7 +33,8 @@ ssh \
 python-certbot-apache \
 php-smbclient \
 php-net-socket \
-php-apcu
+php-apcu \
+cgit
 
 # Enable apache mods.
 RUN a2enmod php7.0
@@ -57,8 +58,8 @@ ADD index.php var/www/index.php
 
 RUN mkdir var/www/gitlab/
 ADD index.php var/www/gitlab/index.php
-ADD gitlab.conf /etc/apache2/sites-available/gitlab.conf
-RUN a2ensite gitlab.conf
+ADD cgit.conf /etc/apache2/sites-available/cgit.conf
+RUN a2ensite cgit.conf
 
 
 
