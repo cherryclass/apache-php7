@@ -62,6 +62,8 @@ ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
 ADD adminer.conf /etc/apache2/sites-available/adminer.conf
 RUN a2ensite adminer.conf
 
+RUN a2ensite gitlab.conf
+
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
 RUN adduser www-data sudo
