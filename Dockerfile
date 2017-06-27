@@ -26,7 +26,6 @@ php7.0-xml \
 php7.0-zip \
 composer \
 mcrypt \
-git \
 sudo \
 nano \
 ssh \
@@ -44,6 +43,7 @@ RUN a2enconf php7.0-fpm
 RUN a2enmod expires
 RUN a2enmod ext_filter
 RUN a2enmod headers
+RUN a2enmod proxy_http
 
 ADD php.ini /etc/php/7.0/apache2/php.ini
 
@@ -59,6 +59,9 @@ ADD index.php var/www/index.php
 ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
 ADD adminer.conf /etc/apache2/sites-available/adminer.conf
 RUN a2ensite adminer.conf
+
+ADD gitlab.conf /etc/apache2/sites-available/gitlab.conf
+RUN a2ensite gitlab.conf
 
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
