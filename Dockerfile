@@ -26,7 +26,6 @@ php7.0-xml \
 php7.0-zip \
 composer \
 mcrypt \
-git \
 sudo \
 nano \
 ssh \
