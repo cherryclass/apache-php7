@@ -44,8 +44,6 @@ RUN a2enconf php7.0-fpm
 RUN a2enmod expires
 RUN a2enmod ext_filter
 RUN a2enmod headers
-#reverse
-RUN a2enmod proxy_http
 
 ADD php.ini /etc/php/7.0/apache2/php.ini
 
@@ -56,14 +54,16 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
-RUN mkdir var/www/adminer/
+RUN mkdir var/www/nextcloud/
+RUN mkdir var/www/kanboard/
 ADD index.php var/www/index.php
-ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
-ADD adminer.conf /etc/apache2/sites-available/adminer.conf
-RUN a2ensite adminer.conf
+ADD nextcloud var/www/nextcloud
+ADD kanboard var/www/kanboard
 
-ADD gitlab.conf /etc/apache2/sites-available/gitlab.conf
-RUN a2ensite gitlab.conf
+ADD nextcloud.conf /etc/apache2/sites-available/nextcloud.conf
+RUN a2ensite nextcloud.conf
+ADD kanboard.conf /etc/apache2/sites-available/kanboard.conf
+RUN a2ensite kanboard.conf
 
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
