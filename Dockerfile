@@ -59,6 +59,16 @@ ADD adminer-4.3.1-mysql.php var/www/adminer/index.php
 ADD adminer.conf /etc/apache2/sites-available/adminer.conf
 RUN a2ensite adminer.conf
 
+RUN mkdir var/www/kelfangora/
+ADD index.php var/www/kelfangora/index.php
+RUN mkdir var/www/cherryclass/
+ADD index.php var/www/cherryclass/index.php
+
+ADD kelfangora.conf /etc/apache2/sites-available/kelfangora.conf
+ADD cherryclass.conf /etc/apache2/sites-available/cherryclass.conf
+RUN a2ensite kelfangora.conf
+RUN a2ensite cherryclass.conf
+
 RUN chown -R www-data:www-data /var/www
 RUN chsh -s /bin/bash www-data
 RUN adduser www-data sudo
