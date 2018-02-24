@@ -68,7 +68,7 @@ EXPOSE 80 443 22 25
 # By default start up apache in the foreground, override with /bin/bash for interative.
 CMD /usr/sbin/apache2ctl -D FOREGROUND
 
-#sudo certbot certonly --webroot -w /var/www/example/ -d www.example.com
+#sudo certbot --authenticator webroot --installer apache --webroot-path /var/www/adminer -d adminer.cherryclass.net -d www.adminer.cherryclass.net
 
 #apt install phpmyadmin
 # sudo nano /etc/phpmyadmin/config-db.php
