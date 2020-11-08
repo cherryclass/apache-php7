@@ -1,5 +1,5 @@
 FROM debian:stretch-slim
-MAINTAINER Luc Frébourg
+MAINTAINER M. Frébourg
 ENV DEBIAN_FRONTEND noninteractive
 
 
